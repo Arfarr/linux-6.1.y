@@ -11,8 +11,8 @@
 #include "rk3399-opp.dtsi"
 
 / {
-	model = "jws3399 Board";
-	compatible = "rockchip,tn3399_v3", "rockchip,rk3399";
+	model = "jws3399 RK3399";
+	compatible = "rockchip,jws3399", "rockchip,rk3399";
 
 	aliases {
 		mmc0 = &sdio0;
