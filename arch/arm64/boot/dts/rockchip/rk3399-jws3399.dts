@@ -226,6 +226,79 @@
 	status = "okay";
 };
 
+//copy from rk3399-jws33999(tn3399）.dts 20241126
+usb@fe800000 {
+		compatible = "rockchip,rk3399-dwc3";
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		ranges;
+		clocks = <0x8 0x81 0x8 0x83 0x8 0xf6 0x8 0xf8 0x8 0xf4 0x8 0xf9>;
+		clock-names = "ref_clk", "suspend_clk", "bus_clk", "aclk_usb3_rksoc_axi_perf", "aclk_usb3", "grf_clk";
+		resets = <0x8 0x125>;
+		reset-names = "usb3-otg";
+		status = "okay";
+		phandle = <0xd4>;
+
+		usb@fe800000 {
+			compatible = "snps,dwc3";
+			reg = <0x0 0xfe800000 0x0 0x100000>;
+			interrupts = <0x0 0x69 0x4 0x0>;
+			clocks = <0x8 0x81 0x8 0xf6 0x8 0x83>;
+			clock-names = "ref", "bus_early", "suspend";
+			dr_mode = "host";
+			phys = <0x2c 0x2d>;
+			phy-names = "usb2-phy", "usb3-phy";
+			phy_type = "utmi_wide";
+			snps,dis_enblslpm_quirk;
+			snps,dis-u2-freeclk-exists-quirk;
+			snps,dis_u2_susphy_quirk;
+			snps,dis-del-phy-power-chg-quirk;
+			snps,dis-tx-ipgap-linecheck-quirk;
+			snps,xhci-trb-ent-quirk;
+			power-domains = <0x18 0x18>;
+			status = "okay";
+			extcon = <0x28>;
+			phandle = <0xd5>;
+		};
+	};
+
+	usb@fe900000 {
+		compatible = "rockchip,rk3399-dwc3";
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		ranges;
+		clocks = <0x8 0x82 0x8 0x84 0x8 0xf7 0x8 0xf8 0x8 0xf4 0x8 0xf9>;
+		clock-names = "ref_clk", "suspend_clk", "bus_clk", "aclk_usb3_rksoc_axi_perf", "aclk_usb3", "grf_clk";
+		resets = <0x8 0x126>;
+		reset-names = "usb3-otg";
+		status = "okay";
+		phandle = <0xd6>;
+
+		usb@fe900000 {
+			compatible = "snps,dwc3";
+			reg = <0x0 0xfe900000 0x0 0x100000>;
+			interrupts = <0x0 0x6e 0x4 0x0>;
+			clocks = <0x8 0x82 0x8 0xf7 0x8 0x84>;
+			clock-names = "ref", "bus_early", "suspend";
+			dr_mode = "host";
+			phys = <0x2e 0x2f>;
+			phy-names = "usb2-phy", "usb3-phy";
+			phy_type = "utmi_wide";
+			snps,dis_enblslpm_quirk;
+			snps,dis-u2-freeclk-exists-quirk;
+			snps,dis_u2_susphy_quirk;
+			snps,dis-del-phy-power-chg-quirk;
+			snps,dis-tx-ipgap-linecheck-quirk;
+			snps,xhci-trb-ent-quirk;
+			power-domains = <0x18 0x18>;
+			status = "okay";
+			phandle = <0xd7>;
+		};
+	};
+//copy from rk3399-jws33999(tn3399）.dts 20241126
+
+
+
 &gmac {
 	status = "okay";
 	assigned-clocks = <&cru SCLK_RMII_SRC>;
