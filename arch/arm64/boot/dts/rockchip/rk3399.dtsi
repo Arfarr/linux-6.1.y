@@ -435,10 +435,9 @@
 		#address-cells = <0x2>;
 		#size-cells = <0x2>;
 		ranges;
-		/*clocks = <&cru SCLK_USB3OTG0_REF>, <&cru SCLK_USB3OTG0_SUSPEND>,
+		*clocks = <&cru SCLK_USB3OTG0_REF>, <&cru SCLK_USB3OTG0_SUSPEND>,
 			 <&cru ACLK_USB3OTG0>, <&cru ACLK_USB3_RKSOC_AXI_PERF>,
-			 <&cru ACLK_USB3>, <&cru ACLK_USB3_GRF>;*/
-		clocks = <0x8 0x81 0x8 0x83 0x8 0xf6 0x8 0xf8 0x8 0xf4 0x8 0xf9>;
+			 <&cru ACLK_USB3>, <&cru ACLK_USB3_GRF>;
 		clock-names = "ref_clk", "suspend_clk", "bus_clk", "aclk_usb3_rksoc_axi_perf","aclk_usb3", "grf_clk";
 		/*resets = <&cru SRST_A_USB3_OTG0>;*/
 		resets = <0x8 0x125>;
@@ -453,7 +452,7 @@
 				 <&cru SCLK_USB3OTG0_SUSPEND>;*/
 			reg = <0x0 0xfe800000 0x0 0x100000>;	 
             interrupts = <0x0 0x69 0x4 0x0>;
-			clocks = <0x8 0x81 0x8 0xf6 0x8 0x83>;
+			clocks = <&cru SCLK_USB3OTG0_REF>, <&cru ACLK_USB3OTG0>, <&cru SCLK_USB3OTG0_SUSPEND>;
 			clock-names = "ref", "bus_early", "suspend";
 			dr_mode = "host";
 			/*phys = <&u2phy0_otg>, <&tcphy0_usb3>;*/
